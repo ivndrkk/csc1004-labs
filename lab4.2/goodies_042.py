@@ -13,4 +13,4 @@ for line in sys.stdin:
 if not all_attendees:
     print("Uh-oh")
 else:
-    print(",".join(sorted(all_attendees)))
+    print(", ".join(sorted(all_attendees)))
