@@ -1,20 +1,19 @@
 import sys
 
 def volumeChanger(MIN, MAX, CURRENT, COMMAND):
-    if COMMAND == 'UP':
-        if CURRENT < MAX:
-            CURRENT += 1
-    elif COMMAND == 'DOWN':
-        if CURRENT > MIN:
-            CURRENT += 1
+    if COMMAND == 'UP' and CURRENT < MAX:
+        CURRENT += 1
+    elif COMMAND == 'DOWN' and CURRENT > MIN:
+        CURRENT -= 1
     return CURRENT
 
-result = None
-config = sys.stdin.readline()
-min, max, current = config.strip().split()
+config = sys.stdin.readline().strip()
+MIN, CURRENT, MAX = map(int, config.split())
+
+current_volume = CURRENT
 
 for line in sys.stdin:
-    line = line.strip()
-    result = volumeChanger(min, max, current, line)
-    
-print(result)
+    command = line.strip()
+    current_volume = volumeChanger(MIN, MAX, current_volume, command)
+
+print(current_volume)
