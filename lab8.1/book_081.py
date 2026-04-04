@@ -1,30 +1,18 @@
-# Book class to model a library book
 class Book:
-    def __init__(self):
-        self.title = ''
-        self.author = ''
-        self.pages = 0
-        self.on_loan = False
-
-    @classmethod
-    def set_attributes(cls, instance, title, author, pages):
-        instance.title = title
-        instance.author = author
-        instance.pages = pages
-        instance.on_loan = False
-
-    @classmethod
-    def print_attributes(cls, instance):
-        print(f"{instance.author}. {instance.title}. {instance.pages} pp.")
-        if instance.on_loan:
-            print("Currently on loan")
-        else:
+    def set_attributes(self,title, author, pages):
+        self.title = title
+        self.author = author
+        self.pages = int(pages)
+        self.isAvailable = True
+    def print_attributes(self):
+        print(f'{self.author}. {self.title}. {self.pages} pp.')
+        if self.isAvailable:
             print("Currently available")
-
-    @classmethod
-    def borrow_book(cls, instance):
-        instance.on_loan = True
-
-    @classmethod
-    def return_book(cls, instance):
-        instance.on_loan = False
+        else:
+            print("Currently on loan")
+    def borrow_book(self):
+        if self.isAvailable:
+            self.isAvailable = False
+    def return_book(self):
+        if not self.isAvailable:
+            self.isAvailable = True

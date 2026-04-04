@@ -1,19 +1,15 @@
-# Student class to model a student
 class Student:
-    def set_attributes(self, sid, name, modlist):
-        self.sid = sid
+    def set_attributes(self,sid,name,modlist):
         self.name = name
-        self.modlist = list(modlist)
-
+        self.sid = sid
+        self.modlist = modlist
     def print_attributes(self):
-        print(f"ID: {self.sid}")
-        print(f"Name: {self.name}")
-        print(f"Modules: {', '.join(self.modlist)}")
-
-    def add_module(self, module):
+        print("ID:", self.sid)
+        print("Name:", self.name)
+        print("Modules:", ", ".join(self.modlist))
+    def add_module(self,module):
         if module not in self.modlist:
             self.modlist.append(module)
-
-    def del_module(self, module):
+    def del_module(self,module):
         if module in self.modlist:
             self.modlist.remove(module)

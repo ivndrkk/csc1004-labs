@@ -1,14 +1,11 @@
-# BankAccount class to model a bank account
 class BankAccount:
-    def set_attributes(self, name, number, balance):
+    def set_attributes(self, name,number, balance):
         self.name = name
         self.number = number
-        self.balance = balance
-
+        self.balance = float(balance)
     def print_attributes(self):
-        print(f"Name: {self.name}")
-        print(f"Account number: {self.number}")
-        print(f"Balance: {self.balance:.2f}")
-
+        print("Name:", self.name)
+        print("Account number:", self.number)
+        print(f'Balance: {self.balance:.2f}')
     def deposit(self, amount):
         self.balance += amount

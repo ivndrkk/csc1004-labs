@@ -1,13 +1,10 @@
-# Point class to model a point in 2D space
+from math import sqrt
+
 class Point:
-	def set_attributes(self, x, y):
-		self.x = x
-		self.y = y
-
-	def print_attributes(self):
-		print(f"x: {self.x:.2f}")
-		print(f"y: {self.y:.2f}")
-
-	def reflect(self):
-		self.x = -self.x
-		self.y = -self.y
+    def __init__(self, x=0, y=0):
+        self.x = float(x)
+        self.y = float(y)
+    def distance(self, other):
+        return sqrt((self.x - other.x)**2 + (self.y - other.y)**2)
+    def __str__(self):
+        return f'({str(self.x)}, {str(self.y)})'

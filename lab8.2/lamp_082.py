@@ -1,12 +1,14 @@
 class Lamp:
     def __init__(self, on=False):
         self.on = on
-
     def turn_on(self):
-        self.on = True
-
+        if not self.on:
+            self.on = True
     def turn_off(self):
-        self.on = False
-
+        if self.on:
+            self.on = False
     def toggle(self):
-        self.on = not self.on
+        if self.on:
+            self.on = False
+        else:
+            self.on = True
