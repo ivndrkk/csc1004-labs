@@ -5,12 +5,15 @@ class Queue:
     def enqueue(self,e):
         self.q.append(e)
     def dequeue(self):
-        if len(self.q) != 0:
+        try:
             return self.q.pop(0)
-        else:
-            return "Error"
+        except IndexError:
+            raise IndexError
     def first(self):
-        return self.q[0]
+        try:
+            return self.q[0]
+        except IndexError:
+            raise IndexError
     def is_empty(self):
         return len(self.q) == 0
     def __len__(self):
